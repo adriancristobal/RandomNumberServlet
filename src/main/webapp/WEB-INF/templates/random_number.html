@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Guess the random number</h1>
+<h4 th:text="'You have ' + (10 - ${counter}) + ' attempts left'"></h4>
+<form action="random_number" method="get">
+    <label for="number">Introduce a number between 1 and 100:</label><br>
+    <input type="text" id="number" name="number"><br><br>
+    <div th:text="${message}" th:style="'color: ' + ${color}"></div>
+    <br><br>
+    <input type="submit" value="TRY" th:disabled="${(counter eq 10)} or ${isVictory}">
+</form>
+
+</body>
+</html>
